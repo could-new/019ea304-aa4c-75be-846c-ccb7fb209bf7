@@ -1,10 +1,11 @@
+import 'dart:typed_data';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
 import '../models/resume_model.dart';
 import 'package:pdf/pdf.dart';
 
 class PdfService {
-  static Future<pw.Document> generateResumePdf(ResumeModel data, String templateName) async {
+  static Future<Uint8List> generateResumePdf(ResumeModel data, String templateName) async {
     final pdf = pw.Document();
 
     pdf.addPage(
@@ -22,7 +23,7 @@ class PdfService {
       ),
     );
 
-    return pdf;
+    return pdf.save();
   }
 
   static pw.Widget buildClassicTemplate(ResumeModel data) {

@@ -15,7 +15,7 @@ class PreviewScreen extends StatelessWidget {
         title: const Text("Resume Preview"),
       ),
       body: PdfPreview(
-        build: (format) => PdfService.generateResume(resume),
+        build: (format) => PdfService.generateResumePdf(resume, 'Classic'),
         canChangeOrientation: false,
         canChangePageFormat: false,
         canDebug: false,
